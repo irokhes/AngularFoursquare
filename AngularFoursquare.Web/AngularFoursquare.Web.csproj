@@ -93,6 +93,7 @@
     <Content Include="app\scripts\angular\angular.js" />
     <Content Include="app\scripts\angular\angular.min.js" />
     <Content Include="app\scripts\bootstrap.css" />
+    <Content Include="app\services\explorerService.js" />
     <Content Include="app\views\placesresults.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
@@ -116,14 +117,9 @@
     <Content Include="app\scripts\angular-bootstrap\bower.json" />
     <Content Include="app\scripts\angular-loading-bar\.bower.json" />
     <Content Include="app\scripts\angular-loading-bar\bower.json" />
-    <Content Include="app\scripts\angular-loading-bar\CHANGELOG.md" />
-    <Content Include="app\scripts\angular-loading-bar\LICENSE" />
     <Content Include="app\scripts\angular-loading-bar\package.json" />
-    <Content Include="app\scripts\angular-loading-bar\README.md" />
     <Content Include="app\scripts\angularjs-toaster\.bower.json" />
     <Content Include="app\scripts\angularjs-toaster\bower.json" />
-    <Content Include="app\scripts\angularjs-toaster\LICENSE" />
-    <Content Include="app\scripts\angularjs-toaster\README.md" />
     <Content Include="app\scripts\angularjs-toaster\toaster.scss" />
     <Content Include="app\scripts\angular\.bower.json" />
     <Content Include="app\scripts\angular\angular.min.js.gzip" />
@@ -141,7 +137,6 @@
   <ItemGroup>
     <Folder Include="app\directives\" />
     <Folder Include="app\filters\" />
-    <Folder Include="app\services\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
