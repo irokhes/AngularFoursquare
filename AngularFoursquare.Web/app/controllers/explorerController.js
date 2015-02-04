@@ -46,4 +46,26 @@ app.controller('ExplorerController',['explorerService'], function ($scope, $expl
             filterPlaces(filterInput);
         });
     }
+
+    $scope.doSearch = function (){
+        $scope.currentPage = 1;
+        getPlaces();
+    };
+
+    $scope.pageChanged = function(page) {
+        $scope.currentPage = page;
+        getPlaces();
+    };
+
+    $scope.buildCategoryIcon = function (icon) {
+
+        return icon.prefix + '44' + icon.suffix;
+    };
+
+    $scope.buildVenueThumbnail = function (photo) {
+
+        return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
+    };
+
+
 });
