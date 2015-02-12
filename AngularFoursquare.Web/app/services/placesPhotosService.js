@@ -4,16 +4,16 @@
     version: "20130815"
 }
 
-app.factory('explorerService', function($resource) {
+app.factory('placesPhotosService', function ($resource) {
     var requestUri = 'https://api.foursquare.com/v2/venues/:action';
-    
+
     return $resource(requestUri,
     {
-        action: 'explore',
+        action: 'photos',
         client_id: requestParams.clientId,
         client_secret: requestParams.clientSecret,
         v: requestParams.version,
-        venuePhotos: '1',
+        limit: '9',
         callback: 'JSON_CALLBACK'
     },
     {
