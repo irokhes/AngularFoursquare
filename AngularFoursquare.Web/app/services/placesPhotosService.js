@@ -1,4 +1,6 @@
-﻿var requestParams = {
+﻿'use strict';
+
+var requestParams = {
     clientId: "TGFG15JODGFPEDPOIX42URX1YYLTVZMXMXX1UY4BPM3YVF10",
     clientSecret: "O5E1J3ZFJM4XH12Z0VLEFMT3MRNKHQQSDAGCT5GIKOWE12UQ",
     version: "20130815"
