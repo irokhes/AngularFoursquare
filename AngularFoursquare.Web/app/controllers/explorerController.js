@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('ExplorerController',['explorerService'], function ($scope, $explorerService) {
+app.controller('ExplorerController',['explorerService', 'CONSTANT'], function ($scope, $explorerService, CONSTANT) {
     $scope.explorerNearBy = "London";
     $scope.explorerQuery = "";
     $scope.filterValue = "";
@@ -37,12 +37,12 @@ app.controller('ExplorerController',['explorerService'], function ($scope, $expl
     };
 
     function filterPlaces(filterInput) {
-        $scope.filterPlaces = $filter("placeNameCategoryFilter")($scope.places, filterInput);
+        $scope.filterPlaces = $filter(CONSTANT.PLACE_NAME_CATEGORY_FILTER)($scope.places, filterInput);
         $scope.filteredPlacesCount = $scope.filterPlaces.length;
     }
 
     function createWatche() {
-        $scope.$watch("filterValue", function(filterInput) {
+        $scope.$watch(CONSTANT.FILTER_VALUE, function(filterInput) {
             filterPlaces(filterInput);
         });
     }
