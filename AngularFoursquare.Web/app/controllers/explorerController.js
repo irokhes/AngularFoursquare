@@ -1,7 +1,7 @@
 ﻿'use strict';
-app.controller('ExplorerController',['explorerService', 'CONSTANT'], function ($scope, $explorerService, CONSTANT) {
-    $scope.explorerNearBy = "London";
-    $scope.explorerQuery = "";
+app.controller('ExplorerController', function ($scope, $modal, explorerService, placesPhotosService, CONSTANT, $filter) {
+    $scope.exploreNearBy = "London";
+    $scope.exploreQuery = "";
     $scope.filterValue = "";
 
 
@@ -23,7 +23,7 @@ app.controller('ExplorerController',['explorerService', 'CONSTANT'], function ($
     function getPlaces() {
         var offset = ($scope.paseSize) * ($scope.currentPage - 1);
 
-        $explorerService.get({ near: $scope.exploreNearby, query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function(placesResult) {
+        explorerService.get({ near: $scope.exploreNearby, query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
             if (placesResult.response.groups) {
                 $scope.places = placesResult.response.groups[0].items;
                 $scope.totalRecordsCount = placesResult.response.totalResults;
@@ -42,17 +42,17 @@ app.controller('ExplorerController',['explorerService', 'CONSTANT'], function ($
     }
 
     function createWatche() {
-        $scope.$watch(CONSTANT.FILTER_VALUE, function(filterInput) {
+        $scope.$watch(CONSTANT.FILTER_VALUE, function (filterInput) {
             filterPlaces(filterInput);
         });
     }
 
-    $scope.doSearch = function (){
+    $scope.doSearch = function () {
         $scope.currentPage = 1;
         getPlaces();
     };
 
-    $scope.pageChanged = function(page) {
+    $scope.pageChanged = function (page) {
         $scope.currentPage = page;
         getPlaces();
     };
@@ -67,5 +67,27 @@ app.controller('ExplorerController',['explorerService', 'CONSTANT'], function ($
         return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
     };
 
+    $scope.showVenuePhotos = function (venueId, venueName) {
+        placesPhotosService.get({ venueId: venueId }, function (photosResult) {
+            var modalInstance = $modal.open({
+                templateUrl: 'app/views/placesphotos.html',
+                controller: 'placesPhotosControler',
+                resolve: {
+                    venueName: function () {
+                        return venueName;
+                    },
+                    venuePhotos: function () {
+                        return photosResult.photos.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                //$scope.selected = selectedItem;
+            }, function () {
+                //alert('Modal dismissed at: ' + new Date());
+            });
+        });
+    };
 
 });

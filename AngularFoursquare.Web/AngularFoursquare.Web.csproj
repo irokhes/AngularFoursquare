@@ -74,6 +74,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\explorerController.js" />
+    <Content Include="app\controllers\placesPhotosController.js" />
     <Content Include="app\filters\placeNameCategoryFilter.js" />
     <Content Include="app\scripts\angular-animate\angular-animate.js" />
     <Content Include="app\scripts\angular-animate\angular-animate.min.js" />
@@ -95,6 +96,8 @@
     <Content Include="app\scripts\angular\angular.min.js" />
     <Content Include="app\scripts\bootstrap.css" />
     <Content Include="app\services\explorerService.js" />
+    <Content Include="app\services\placesPhotosService.js" />
+    <Content Include="app\views\placesphotos.html" />
     <Content Include="app\views\placesresults.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
